@@ -20,7 +20,7 @@ jobs:
             echo "No source archive found; nothing to import."
             exit 0
           fi
-          unzip -q site-source-clean.zip -d .
+          unzip -oq site-source-clean.zip -d .
           rm -f site-source-clean.zip .github/workflows/import-site.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
