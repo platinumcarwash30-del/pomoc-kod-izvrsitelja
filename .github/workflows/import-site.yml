@@ -9,7 +9,6 @@ permissions:
 
 jobs:
   import:
-    if: ${{ github.actor != 'github-actions[bot]' && hashFiles('site-source-clean.zip') != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,6 +16,10 @@ jobs:
 
       - name: Expand source archive
         run: |
+          if [ ! -f site-source-clean.zip ]; then
+            echo "No source archive found; nothing to import."
+            exit 0
+          fi
           unzip -q site-source-clean.zip -d .
           rm -f site-source-clean.zip .github/workflows/import-site.yml
           git config user.name "github-actions[bot]"
