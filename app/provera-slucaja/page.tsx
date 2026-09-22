@@ -23,7 +23,7 @@ import {
 } from "@/lib/case-intake.mjs";
 
 const LK023_INTAKE_ENDPOINT =
-  `${process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ruhxyodqhgfkwvwlxaxf.supabase.co"}/functions/v1/lk023-public-intake`;
+  `${process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ruhxyodqhgfkwvwlxaxf.supabase.co"}/functions/v1/lk023-case-intake`;
 const LK023_PUBLISHABLE_KEY =
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
   "sb_publishable_kgf__jIm5xu6Exp2RT18mw_wWVpbZT3";
