@@ -85,8 +85,20 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f7f8fa] text-slate-950">
       <section className="relative isolate overflow-hidden bg-[#091116] text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_72%_18%,rgba(190,36,47,0.28),transparent_29%),radial-gradient(circle_at_14%_86%,rgba(24,103,135,0.2),transparent_26%)]" />
-        <div className="absolute inset-0 -z-10 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:44px_44px]" />
+        <div className="absolute inset-0 -z-20">
+          <Image
+            src={`${basePath}/pobedi-izvrsitelja-story.webp`}
+            alt="Tri koraka: prijem koverte, briga i olakšanje"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[67%_center] sm:object-[64%_center] lg:object-[61%_center]"
+          />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-[#091116]/55" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,17,22,0.98)_0%,rgba(9,17,22,0.8)_37%,rgba(9,17,22,0.28)_72%,rgba(9,17,22,0.62)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(9,17,22,0.78)_0%,rgba(9,17,22,0.08)_42%,rgba(9,17,22,0.9)_100%)]" />
+        <div className="absolute inset-0 -z-10 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:44px_44px]" />
 
         <div className="border-b border-red-400/20 bg-red-950/35 px-5 py-2.5 text-center text-[13px] font-medium tracking-wide text-red-100">
           <span className="mr-2 inline-block size-1.5 rounded-full bg-red-400 align-middle shadow-[0_0_12px_rgba(248,113,113,0.95)]" />
