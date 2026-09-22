@@ -17,6 +17,16 @@ import {
   Scale,
   ShieldCheck,
 } from "lucide-react";
+import {
+  buildCaseIntakePayload,
+  validateCaseIntake,
+} from "@/lib/case-intake.mjs";
+
+const LK023_INTAKE_ENDPOINT =
+  `${process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ruhxyodqhgfkwvwlxaxf.supabase.co"}/functions/v1/lk023-public-intake`;
+const LK023_PUBLISHABLE_KEY =
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+  "sb_publishable_kgf__jIm5xu6Exp2RT18mw_wWVpbZT3";
 
 const problemOptions = [
   { title: "Blokiran račun", text: "Ne možete da raspolažete novcem na računu.", icon: LockKeyhole },
@@ -39,12 +49,70 @@ export default function CaseCheckPage() {
   const [step, setStep] = useState(1);
   const [problem, setProblem] = useState("");
   const [urgency, setUrgency] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [website, setWebsite] = useState("");
   const [completed, setCompleted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const submitCase = async () => {
+    const validationErrors = validateCaseIntake({
+      fullName,
+      phone,
+      problem,
+      urgency,
+      website,
+    });
+
+    if (validationErrors.length > 0) {
+      setSubmitError("Unesite ime i prezime i ispravan kontakt telefon.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch(LK023_INTAKE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: LK023_PUBLISHABLE_KEY,
+        },
+        body: JSON.stringify(
+          buildCaseIntakePayload({
+            fullName,
+            phone,
+            problem,
+            urgency,
+            website,
+          }),
+        ),
+      });
+      const data = (await response.json().catch(() => null)) as {
+        ok?: boolean;
+        error?: string;
+      } | null;
+
+      if (!response.ok || !data?.ok) {
+        throw new Error(data?.error || "SUBMISSION_FAILED");
+      }
+
+      setCompleted(true);
+    } catch {
+      setSubmitError(
+        "Trenutno nismo uspeli da pošaljemo zahtev. Proverite podatke i pokušajte ponovo.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const goNext = () => {
     if (step === 1 && problem) setStep(2);
     if (step === 2 && urgency) setStep(3);
-    if (step === 3) setCompleted(true);
+    if (step === 3) void submitCase();
   };
 
   return (
@@ -88,8 +156,8 @@ export default function CaseCheckPage() {
               <div className="py-8 text-center sm:py-14">
                 <div className="mx-auto grid size-16 place-items-center rounded-full bg-emerald-50 text-emerald-600"><CheckCircle2 className="size-8" /></div>
                 <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Početni pregled je spreman</p>
-                <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Sada znamo odakle da počnemo.</h2>
-                <p className="mx-auto mt-4 max-w-md text-base leading-7 text-slate-600">U sledećoj fazi ovde povezujemo bezbedan kontakt, slanje dokumenta i jasnu analizu vašeg slučaja.</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Uspešno ste poslali zahtev.</h2>
+                <p className="mx-auto mt-4 max-w-md text-base leading-7 text-slate-600">Kontaktiraćemo vas nakon pregleda i razgovora. Dokumenta se šalju isključivo bezbednim putem, nakon što dogovorimo sledeći korak.</p>
                 <Link href="/#kontakt" className="mt-8 inline-flex items-center gap-3 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2">Nastavite ka razgovoru <ArrowRight className="size-4" /></Link>
               </div>
             ) : (
@@ -132,13 +200,25 @@ export default function CaseCheckPage() {
                       <div className="flex items-start justify-between gap-4 p-4"><span className="text-sm text-slate-500">Problem</span><strong className="text-right text-sm">{problem}</strong></div>
                       <div className="flex items-start justify-between gap-4 p-4"><span className="text-sm text-slate-500">Situacija</span><strong className="text-right text-sm">{urgency}</strong></div>
                     </div>
+                    <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                      <label className="text-sm font-bold text-slate-700">Ime i prezime
+                        <input value={fullName} onChange={(event) => setFullName(event.target.value)} autoComplete="name" placeholder="Unesite ime i prezime" className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-100" />
+                      </label>
+                      <label className="text-sm font-bold text-slate-700">Kontakt telefon
+                        <input value={phone} onChange={(event) => setPhone(event.target.value)} autoComplete="tel" inputMode="tel" placeholder="063 123 4567" className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-100" />
+                      </label>
+                    </div>
+                    <label className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">Website
+                      <input value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" />
+                    </label>
                     <div className="mt-5 flex gap-3 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950"><ShieldCheck className="mt-0.5 size-5 shrink-0 text-blue-600" /><p>Ne šaljite JMBG, broj računa ili kompletna rešenja dok ne dogovorimo bezbedan kanal.</p></div>
+                    {submitError && <p role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800">{submitError}</p>}
                   </div>
                 )}
 
                 <div className="mt-9 flex flex-col-reverse gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
                   <button type="button" onClick={() => setStep((current) => Math.max(1, current - 1))} className={`text-sm font-bold text-slate-500 transition hover:text-slate-950 ${step === 1 ? "invisible" : ""}`}>Nazad</button>
-                  <button type="button" disabled={step === 1 ? !problem : step === 2 ? !urgency : false} onClick={goNext} className="inline-flex items-center justify-center gap-3 rounded-full bg-red-500 px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_28px_rgba(239,68,68,0.2)] transition hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2">Nastavite <ArrowRight className="size-4" /></button>
+                  <button type="button" disabled={isSubmitting || (step === 1 ? !problem : step === 2 ? !urgency : false)} onClick={goNext} className="inline-flex items-center justify-center gap-3 rounded-full bg-red-500 px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_28px_rgba(239,68,68,0.2)] transition hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2">{step === 3 ? (isSubmitting ? "Šaljemo zahtev..." : "Prosledi zahtev") : "Nastavite"} <ArrowRight className="size-4" /></button>
                 </div>
               </>
             )}
