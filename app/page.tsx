@@ -83,7 +83,10 @@ const topics = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f7f8fa] text-slate-950">
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#dcebed] text-slate-950">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_30%,rgba(239,68,68,0.11),transparent_24rem),radial-gradient(circle_at_86%_50%,rgba(14,116,144,0.14),transparent_32rem),linear-gradient(180deg,#dcebed_0%,#e8f1f2_44%,#d7e7e9_100%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-35 [background-image:linear-gradient(rgba(15,42,50,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.08)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[48rem] -z-10 h-[82rem] w-px bg-gradient-to-b from-red-400/0 via-red-400/30 to-teal-500/0" />
       <section className="relative isolate overflow-hidden bg-[#091116] text-white">
         <div className="absolute inset-0 -z-20">
           <Image
@@ -208,7 +211,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="problemi" className="mx-auto max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section id="problemi" className="relative isolate mx-auto max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-16 size-72 rounded-full bg-red-300/20 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-teal-300/20 blur-3xl" />
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-700">Možda ste ovde jer...</p>
@@ -236,7 +241,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="kako-radimo" className="scroll-mt-8 bg-[#e9f2f3] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section id="kako-radimo" className="relative isolate scroll-mt-8 overflow-hidden border-y border-white/60 bg-[#d3e5e7]/90 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-55 [background-image:linear-gradient(rgba(15,42,50,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-20 -z-10 size-[28rem] rounded-full bg-teal-300/30 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -left-24 bottom-0 -z-10 size-72 rounded-full bg-red-300/20 blur-3xl" />
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-700">Bez lutanja</p>
@@ -244,20 +252,21 @@ export default function Home() {
             <p className="mt-5 text-base leading-7 text-slate-600">Saradnja počinje jednostavno. Ne morate unapred znati pravni naziv problema da biste potražili pomoć.</p>
           </div>
 
-          <div className="mt-12 grid gap-4 lg:grid-cols-3">
-            <article className="relative rounded-3xl bg-white p-7 shadow-[0_18px_45px_rgba(15,23,42,0.06)]">
+          <div className="relative mt-12 grid gap-4 lg:grid-cols-3">
+            <div aria-hidden="true" className="pointer-events-none absolute left-[16%] right-[16%] top-[3.8rem] hidden h-px bg-gradient-to-r from-teal-400/20 via-teal-500/70 to-emerald-400/70 lg:block" />
+            <article className="relative z-10 rounded-3xl bg-white/95 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ring-1 ring-white/70">
               <span className="text-6xl font-semibold tracking-[-0.08em] text-teal-100">01</span>
               <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-teal-50 text-teal-700"><MessageCircleMore className="size-5" /></div>
               <h3 className="mt-6 text-xl font-semibold tracking-tight">Ispričate šta se desilo</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">Napišete šta ste dobili, kada je stiglo i šta vas trenutno najviše brine.</p>
             </article>
-            <article className="relative rounded-3xl bg-white p-7 shadow-[0_18px_45px_rgba(15,23,42,0.06)]">
+            <article className="relative z-10 rounded-3xl bg-white/95 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ring-1 ring-white/70">
               <span className="text-6xl font-semibold tracking-[-0.08em] text-teal-100">02</span>
               <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-blue-50 text-blue-700"><FileCheck2 className="size-5" /></div>
               <h3 className="mt-6 text-xl font-semibold tracking-tight">Dobijete razumljivu analizu</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">Prolazimo kroz informacije i objašnjavamo šta je važno, bez nepotrebnog komplikovanja.</p>
             </article>
-            <article className="relative rounded-3xl bg-slate-950 p-7 text-white shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+            <article className="relative z-10 rounded-3xl bg-slate-950 p-7 text-white shadow-[0_18px_45px_rgba(15,23,42,0.15)] ring-1 ring-white/10">
               <span className="text-6xl font-semibold tracking-[-0.08em] text-emerald-300/20">03</span>
               <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-emerald-300/15 text-emerald-300"><ArrowRight className="size-5" /></div>
               <h3 className="mt-6 text-xl font-semibold tracking-tight">Znate koji je sledeći korak</h3>
@@ -267,7 +276,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="o-nama" className="mx-auto grid max-w-7xl scroll-mt-8 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24 lg:px-12 lg:py-32">
+      <section id="o-nama" className="relative isolate mx-auto grid max-w-7xl scroll-mt-8 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24 lg:px-12 lg:py-32">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 top-1/2 size-72 -translate-y-1/2 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="relative min-h-[390px] overflow-hidden rounded-[2rem] bg-[#0b1b22] p-7 text-white shadow-[0_24px_70px_rgba(15,23,42,0.13)] sm:p-9">
           <div className="absolute -right-16 -top-16 size-64 rounded-full bg-red-500/20 blur-3xl" />
           <div className="absolute -bottom-20 -left-16 size-64 rounded-full bg-teal-400/15 blur-3xl" />
@@ -295,7 +305,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-white px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
+      <section className="relative isolate overflow-hidden border-y border-slate-300/70 bg-[#edf4f5]/90 px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background-image:linear-gradient(rgba(15,42,50,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.07)_1px,transparent_1px)] [background-size:52px_52px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-1/3 -z-10 size-96 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">Korisne informacije</p>
