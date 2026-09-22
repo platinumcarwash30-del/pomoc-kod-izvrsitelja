@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowLeft,
@@ -50,9 +51,9 @@ export default function CaseCheckPage() {
     <main className="min-h-screen bg-[#f7f8fa] text-slate-950">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-          <a href="/" className="inline-flex items-center gap-2 text-sm font-bold text-slate-700 transition hover:text-red-700">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-slate-700 transition hover:text-red-700">
             <ArrowLeft className="size-4" /> Početna strana
-          </a>
+          </Link>
           <div className="flex items-center gap-2 text-sm font-bold tracking-tight text-slate-950"><Scale className="size-5 text-red-600" /> Pomoć kod izvršitelja</div>
         </div>
       </header>
@@ -89,7 +90,7 @@ export default function CaseCheckPage() {
                 <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Početni pregled je spreman</p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Sada znamo odakle da počnemo.</h2>
                 <p className="mx-auto mt-4 max-w-md text-base leading-7 text-slate-600">U sledećoj fazi ovde povezujemo bezbedan kontakt, slanje dokumenta i jasnu analizu vašeg slučaja.</p>
-                <a href="/#kontakt" className="mt-8 inline-flex items-center gap-3 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2">Nastavite ka razgovoru <ArrowRight className="size-4" /></a>
+                <Link href="/#kontakt" className="mt-8 inline-flex items-center gap-3 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2">Nastavite ka razgovoru <ArrowRight className="size-4" /></Link>
               </div>
             ) : (
               <>

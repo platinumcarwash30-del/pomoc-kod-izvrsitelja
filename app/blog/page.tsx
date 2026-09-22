@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -106,7 +107,7 @@ export default function BlogPage() {
     <main className="min-h-screen bg-[#f7f8fa] text-slate-950">
       <section className="bg-[#091116] px-5 pb-16 pt-8 text-white sm:px-8 lg:px-12 lg:pb-24 lg:pt-10">
         <div className="mx-auto max-w-7xl">
-          <a href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition hover:text-white"><ArrowLeft className="size-4" /> Nazad na početnu</a>
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition hover:text-white"><ArrowLeft className="size-4" /> Nazad na početnu</Link>
           <div className="mt-16 max-w-4xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-red-300/25 bg-red-300/10 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.18em] text-red-100"><BookOpen className="size-4 text-red-300" /> Blog</div>
             <h1 className="mt-6 text-5xl font-semibold leading-[0.98] tracking-[-0.06em] sm:text-7xl">Šta se dešava i šta prvo proveriti.</h1>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
   AlertTriangle,
@@ -403,8 +404,12 @@ export default function Home() {
       </section>
 
       <footer className="bg-[#091116] px-5 py-8 text-sm text-slate-400 sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Rešite se problema sa javnim izvršiteljima · Marko Ćuća</p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col items-start gap-3">
+            <Image src="/platinum-core-777-logo.png" alt="PLATINUM CORE 777" width={345} height={254} className="h-16 w-auto object-contain object-left" />
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-300">LICENSED · POWERED BY PLATINUM CORE 777</p>
+            <p>© 2026 Rešite se problema sa javnim izvršiteljima · Marko Ćuća</p>
+          </div>
           <p className="max-w-xl text-left text-xs leading-5 text-slate-500 sm:text-right">Informativni sadržaj ne predstavlja garanciju ishoda. Svaki slučaj zahteva proveru konkretnih dokumenata i rokova.</p>
         </div>
       </footer>

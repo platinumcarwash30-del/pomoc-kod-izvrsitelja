@@ -1,4 +1,4 @@
-name: Deploy site to GitHub Pages
+name: Build and deploy site to GitHub Pages
 
 on:
   push:
@@ -17,8 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_BASE_PATH: /pomoc-kod-izvrsitelja
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,14 +26,14 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm ci
-      - name: Build static site
-        run: npm run build
+      - name: Build and verify static site
+        run: npm run build:loopia:verify
       - name: Disable Jekyll processing
-        run: touch dist/client/.nojekyll
+        run: touch out/.nojekyll
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/client
+          path: out
 
   deploy:
     needs: build
