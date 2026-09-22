@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import {
   buildCaseIntakePayload,
   normalizeCasePhone,
@@ -48,5 +49,13 @@ assert.deepEqual(
     website: "",
   },
 );
+
+const casePage = readFileSync(
+  new URL("../app/provera-slucaja/page.tsx", import.meta.url),
+  "utf8",
+);
+assert.ok(casePage.includes("Trenutno nismo uspeli da primimo vaš zahtev."));
+assert.ok(casePage.includes("Uspešno ste poslali zahtev."));
+assert.ok(casePage.includes("Očekujte odgovor u najkraćem roku."));
 
 console.log("case-intake tests passed");

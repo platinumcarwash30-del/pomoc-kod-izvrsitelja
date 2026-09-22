@@ -101,9 +101,7 @@ export default function CaseCheckPage() {
 
       setCompleted(true);
     } catch {
-      setSubmitError(
-        "Trenutno nismo uspeli da pošaljemo zahtev. Proverite podatke i pokušajte ponovo.",
-      );
+      setSubmitError("Trenutno nismo uspeli da primimo vaš zahtev.");
     } finally {
       setIsSubmitting(false);
     }
@@ -155,9 +153,9 @@ export default function CaseCheckPage() {
             {completed ? (
               <div className="py-8 text-center sm:py-14">
                 <div className="mx-auto grid size-16 place-items-center rounded-full bg-emerald-50 text-emerald-600"><CheckCircle2 className="size-8" /></div>
-                <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Početni pregled je spreman</p>
+                <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Zahtev je primljen</p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Uspešno ste poslali zahtev.</h2>
-                <p className="mx-auto mt-4 max-w-md text-base leading-7 text-slate-600">Kontaktiraćemo vas nakon pregleda i razgovora. Dokumenta se šalju isključivo bezbednim putem, nakon što dogovorimo sledeći korak.</p>
+                <p className="mx-auto mt-4 max-w-md text-base leading-7 text-slate-600">Očekujte odgovor u najkraćem roku. Dokumenta se šalju isključivo bezbednim putem, nakon što dogovorimo sledeći korak.</p>
                 <Link href="/#kontakt" className="mt-8 inline-flex items-center gap-3 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2">Nastavite ka razgovoru <ArrowRight className="size-4" /></Link>
               </div>
             ) : (
