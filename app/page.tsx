@@ -92,6 +92,18 @@ export default function Home() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_30%,rgba(239,68,68,0.11),transparent_24rem),radial-gradient(circle_at_86%_50%,rgba(14,116,144,0.14),transparent_32rem),linear-gradient(180deg,rgba(220,235,237,0.34)_0%,rgba(232,241,242,0.38)_44%,rgba(215,231,233,0.34)_100%)]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12] [background-image:linear-gradient(rgba(15,42,50,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.08)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)]" />
       <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[48rem] -z-10 h-[82rem] w-px bg-gradient-to-b from-red-400/0 via-red-400/30 to-teal-500/0" />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-y-0 left-0 z-20 hidden w-24 lg:block">
+        <div className="absolute bottom-[18%] left-10 top-[18%] w-px bg-gradient-to-b from-transparent via-amber-400/70 to-transparent" />
+        <div className="absolute left-[calc(2.5rem-1.1rem)] top-[26%] grid size-9 place-items-center rounded-xl border border-amber-300/60 bg-[#0b1b22]/80 text-amber-200 shadow-[0_8px_25px_rgba(15,23,42,0.18)] backdrop-blur-sm"><Mail className="size-4" /></div>
+        <div className="absolute left-[calc(2.5rem-1.1rem)] top-1/2 grid size-9 place-items-center rounded-xl border border-amber-300/50 bg-[#0b1b22]/75 text-amber-200 shadow-[0_8px_25px_rgba(15,23,42,0.18)] backdrop-blur-sm"><FileCheck2 className="size-4" /></div>
+        <div className="absolute bottom-[26%] left-[calc(2.5rem-1.1rem)] grid size-9 place-items-center rounded-xl border border-amber-300/50 bg-[#0b1b22]/75 text-amber-200 shadow-[0_8px_25px_rgba(15,23,42,0.18)] backdrop-blur-sm"><ShieldCheck className="size-4" /></div>
+      </div>
+      <div aria-hidden="true" className="pointer-events-none fixed inset-y-0 right-0 z-20 hidden w-24 lg:block">
+        <div className="absolute bottom-[18%] right-10 top-[18%] w-px bg-gradient-to-b from-transparent via-amber-400/70 to-transparent" />
+        <div className="absolute right-[calc(2.5rem-1.1rem)] top-[26%] grid size-9 place-items-center rounded-xl border border-amber-300/60 bg-[#0b1b22]/80 text-amber-200 shadow-[0_8px_25px_rgba(15,23,42,0.18)] backdrop-blur-sm"><Mail className="size-4" /></div>
+        <div className="absolute right-[calc(2.5rem-1.1rem)] top-1/2 grid size-9 place-items-center rounded-xl border border-amber-300/50 bg-[#0b1b22]/75 text-amber-200 shadow-[0_8px_25px_rgba(15,23,42,0.18)] backdrop-blur-sm"><FileCheck2 className="size-4" /></div>
+        <div className="absolute bottom-[26%] right-[calc(2.5rem-1.1rem)] grid size-9 place-items-center rounded-xl border border-amber-300/50 bg-[#0b1b22]/75 text-amber-200 shadow-[0_8px_25px_rgba(15,23,42,0.18)] backdrop-blur-sm"><ShieldCheck className="size-4" /></div>
+      </div>
       <section className="relative isolate overflow-hidden bg-[#091116] text-white">
         <div className="absolute inset-0 -z-20">
           <Image
@@ -132,7 +144,7 @@ export default function Home() {
 
           <Link
             href="/provera-slucaja"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white px-4 py-2.5 text-sm font-bold text-slate-950 shadow-[0_12px_30px_rgba(255,255,255,0.12)] transition hover:-translate-y-0.5 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2 focus:ring-offset-[#091116]"
+            className="inline-flex items-center gap-2 rounded-full border border-amber-200/70 bg-amber-300 px-4 py-2.5 text-sm font-bold text-[#102a32] shadow-[0_12px_30px_rgba(251,191,36,0.2)] transition hover:-translate-y-0.5 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-[#091116]"
           >
             Proverite svoj slučaj
             <ArrowRight className="size-4" />
@@ -154,14 +166,14 @@ export default function Home() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="/provera-slucaja"
-                className="inline-flex items-center justify-center gap-3 rounded-full bg-red-500 px-6 py-3.5 text-sm font-bold text-white shadow-[0_14px_35px_rgba(239,68,68,0.28)] transition hover:-translate-y-0.5 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-[#091116]"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-amber-300 px-6 py-3.5 text-sm font-bold text-[#102a32] shadow-[0_14px_35px_rgba(251,191,36,0.28)] transition hover:-translate-y-0.5 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-2 focus:ring-offset-[#091116]"
               >
                 Napravite prvi korak
                 <ArrowRight className="size-4" />
               </Link>
               <a
                 href="#kako-radimo"
-                className="inline-flex items-center justify-center gap-3 rounded-full border border-white/15 px-6 py-3.5 text-sm font-bold text-white transition hover:border-white/35 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-[#091116]"
+                className="inline-flex items-center justify-center gap-3 rounded-full border border-amber-200/40 px-6 py-3.5 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/10 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-[#091116]"
               >
                 Kako možemo da pomognemo
                 <ChevronRight className="size-4" />
@@ -237,7 +249,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight">{problem.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-600">{problem.text}</p>
-                  <Link href="/provera-slucaja" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-slate-900 transition group-hover:text-red-700">
+                  <Link href="/provera-slucaja" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-amber-700 transition group-hover:text-amber-900">
                     Saznajte više <ArrowRight className="size-4" />
                   </Link>
                 </article>
@@ -261,22 +273,22 @@ export default function Home() {
           </div>
 
           <div className="relative mt-12 grid gap-4 lg:grid-cols-3">
-            <div aria-hidden="true" className="pointer-events-none absolute left-[16%] right-[16%] top-[3.8rem] hidden h-px bg-gradient-to-r from-teal-400/20 via-teal-500/70 to-emerald-400/70 lg:block" />
-            <article className="relative z-10 rounded-3xl bg-white/95 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ring-1 ring-white/70">
-              <span className="text-6xl font-semibold tracking-[-0.08em] text-teal-100">01</span>
-              <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-teal-50 text-teal-700"><MessageCircleMore className="size-5" /></div>
-              <h3 className="mt-6 text-xl font-semibold tracking-tight">Ispričate šta se desilo</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">Napišete šta ste dobili, kada je stiglo i šta vas trenutno najviše brine.</p>
+            <div aria-hidden="true" className="pointer-events-none absolute left-[16%] right-[16%] top-[3.8rem] hidden h-px bg-gradient-to-r from-amber-300/30 via-amber-300/80 to-amber-200/80 lg:block" />
+            <article className="relative z-10 rounded-3xl bg-[#0b1b22]/95 p-7 text-white shadow-[0_18px_45px_rgba(15,23,42,0.16)] ring-1 ring-white/10">
+              <span className="text-6xl font-semibold tracking-[-0.08em] text-amber-300/45">01</span>
+              <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-amber-300/15 text-amber-200"><MessageCircleMore className="size-5" /></div>
+              <h3 className="mt-6 text-xl font-semibold tracking-tight text-white">Ispričate šta se desilo</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">Napišete šta ste dobili, kada je stiglo i šta vas trenutno najviše brine.</p>
             </article>
-            <article className="relative z-10 rounded-3xl bg-white/95 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ring-1 ring-white/70">
-              <span className="text-6xl font-semibold tracking-[-0.08em] text-teal-100">02</span>
-              <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-blue-50 text-blue-700"><FileCheck2 className="size-5" /></div>
-              <h3 className="mt-6 text-xl font-semibold tracking-tight">Dobijete razumljivu analizu</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">Prolazimo kroz informacije i objašnjavamo šta je važno, bez nepotrebnog komplikovanja.</p>
+            <article className="relative z-10 rounded-3xl bg-[#0b1b22]/95 p-7 text-white shadow-[0_18px_45px_rgba(15,23,42,0.16)] ring-1 ring-white/10">
+              <span className="text-6xl font-semibold tracking-[-0.08em] text-amber-300/45">02</span>
+              <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-amber-300/15 text-amber-200"><FileCheck2 className="size-5" /></div>
+              <h3 className="mt-6 text-xl font-semibold tracking-tight text-white">Dobijete razumljivu analizu</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">Prolazimo kroz informacije i objašnjavamo šta je važno, bez nepotrebnog komplikovanja.</p>
             </article>
-            <article className="relative z-10 rounded-3xl bg-slate-950 p-7 text-white shadow-[0_18px_45px_rgba(15,23,42,0.15)] ring-1 ring-white/10">
-              <span className="text-6xl font-semibold tracking-[-0.08em] text-emerald-300/20">03</span>
-              <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-emerald-300/15 text-emerald-300"><ArrowRight className="size-5" /></div>
+            <article className="relative z-10 rounded-3xl bg-[#0b1b22]/95 p-7 text-white shadow-[0_18px_45px_rgba(15,23,42,0.16)] ring-1 ring-white/10">
+              <span className="text-6xl font-semibold tracking-[-0.08em] text-amber-300/45">03</span>
+              <div className="mt-8 grid size-12 place-items-center rounded-2xl bg-amber-300/15 text-amber-200"><ArrowRight className="size-5" /></div>
               <h3 className="mt-6 text-xl font-semibold tracking-tight">Znate koji je sledeći korak</h3>
               <p className="mt-3 text-sm leading-6 text-slate-300">Dobijate jasan plan šta da proverite, koji rok da pratite i kada je potrebna dodatna stručna pomoć.</p>
             </article>
@@ -327,8 +339,8 @@ export default function Home() {
           </div>
           <div className="grid gap-x-10 sm:grid-cols-2">
             {topics.map((topic) => (
-              <Link key={topic} href="/provera-slucaja" className="group flex items-start gap-3 border-b border-slate-200 py-5 text-base font-semibold leading-6 text-slate-800 transition hover:text-blue-700">
-                <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-blue-50 text-blue-700"><ChevronRight className="size-3.5" /></span>
+              <Link key={topic} href="/provera-slucaja" className="group flex items-start gap-3 border-b border-slate-200 py-5 text-base font-semibold leading-6 text-slate-800 transition hover:text-amber-700">
+                <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-amber-50 text-amber-700"><ChevronRight className="size-3.5" /></span>
                 <span>{topic}</span>
               </Link>
             ))}
@@ -350,7 +362,7 @@ export default function Home() {
               <p className="flex gap-3"><WalletCards className="mt-1 size-5 shrink-0 text-emerald-300" /> Naknada i obim pomoći biće jasno objašnjeni pre saradnje.</p>
               <p className="flex gap-3"><ShieldCheck className="mt-1 size-5 shrink-0 text-emerald-300" /> Ne šaljite osetljive dokumente pre dogovorenog bezbednog kanala.</p>
             </div>
-            <a href="#top" className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-emerald-300 px-5 py-3.5 text-sm font-bold text-[#102a32] transition hover:bg-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 focus:ring-offset-[#102a32]">Vratite se na početak <ArrowRight className="size-4" /></a>
+            <a href="#top" className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-amber-300 px-5 py-3.5 text-sm font-bold text-[#102a32] transition hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-[#102a32]">Vratite se na početak <ArrowRight className="size-4" /></a>
           </div>
         </div>
       </section>
