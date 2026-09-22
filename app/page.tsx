@@ -95,9 +95,9 @@ export default function Home() {
             className="object-cover object-[67%_center] sm:object-[64%_center] lg:object-[61%_center]"
           />
         </div>
-        <div className="absolute inset-0 -z-10 bg-[#091116]/55" />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,17,22,0.98)_0%,rgba(9,17,22,0.8)_37%,rgba(9,17,22,0.28)_72%,rgba(9,17,22,0.62)_100%)]" />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(9,17,22,0.78)_0%,rgba(9,17,22,0.08)_42%,rgba(9,17,22,0.9)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[#091116]/40" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,17,22,0.94)_0%,rgba(9,17,22,0.64)_37%,rgba(9,17,22,0.12)_72%,rgba(9,17,22,0.42)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(9,17,22,0.62)_0%,rgba(9,17,22,0.02)_42%,rgba(9,17,22,0.76)_100%)]" />
         <div className="absolute inset-0 -z-10 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:44px_44px]" />
 
         <div className="border-b border-red-400/20 bg-red-950/35 px-5 py-2.5 text-center text-[13px] font-medium tracking-wide text-red-100">
@@ -166,9 +166,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-md lg:ml-auto">
+          <div className="relative mx-auto w-full max-w-xl lg:ml-auto lg:translate-y-16">
             <div className="absolute -inset-6 rounded-[2rem] bg-red-500/10 blur-3xl" />
-            <div className="relative rounded-[2rem] border border-white/15 bg-white/[0.07] p-4 shadow-[0_25px_90px_rgba(0,0,0,0.28)] backdrop-blur-sm sm:p-5">
+            <div className="relative rounded-[2rem] border border-white/20 bg-white/[0.1] p-4 shadow-[0_25px_90px_rgba(0,0,0,0.28)] backdrop-blur-sm sm:p-5">
               <div className="rounded-[1.4rem] bg-[#f6f7f9] p-5 text-slate-950 sm:p-6">
                 <div className="flex items-start justify-between border-b border-slate-200 pb-5">
                   <div>
