@@ -87,10 +87,10 @@ const topics = [
 export default function Home() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#dcebed]/90 text-slate-950">
-      <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat opacity-[0.19]" />
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-[#dcebed]/75" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_30%,rgba(239,68,68,0.11),transparent_24rem),radial-gradient(circle_at_86%_50%,rgba(14,116,144,0.14),transparent_32rem),linear-gradient(180deg,rgba(220,235,237,0.55)_0%,rgba(232,241,242,0.62)_44%,rgba(215,231,233,0.58)_100%)]" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-20 [background-image:linear-gradient(rgba(15,42,50,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.08)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)]" />
+      <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat opacity-[0.38]" />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-[#dcebed]/45" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_30%,rgba(239,68,68,0.11),transparent_24rem),radial-gradient(circle_at_86%_50%,rgba(14,116,144,0.14),transparent_32rem),linear-gradient(180deg,rgba(220,235,237,0.34)_0%,rgba(232,241,242,0.38)_44%,rgba(215,231,233,0.34)_100%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12] [background-image:linear-gradient(rgba(15,42,50,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.08)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)]" />
       <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[48rem] -z-10 h-[82rem] w-px bg-gradient-to-b from-red-400/0 via-red-400/30 to-teal-500/0" />
       <section className="relative isolate overflow-hidden bg-[#091116] text-white">
         <div className="absolute inset-0 -z-20">
@@ -217,7 +217,7 @@ export default function Home() {
       </section>
 
       <section id="problemi" className="relative isolate mx-auto max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 rounded-[3rem] bg-cover bg-[position:62%_center] bg-no-repeat opacity-[0.08]" />
+        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 rounded-[3rem] bg-cover bg-[position:62%_center] bg-no-repeat opacity-[0.16]" />
         <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-16 size-72 rounded-full bg-red-300/20 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-teal-300/20 blur-3xl" />
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
@@ -248,9 +248,9 @@ export default function Home() {
       </section>
 
       <section id="kako-radimo" className="relative isolate scroll-mt-8 overflow-hidden border-y border-white/60 bg-[#d3e5e7]/90 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-[position:63%_center] bg-no-repeat opacity-[0.13]" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[#d3e5e7]/55" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-25 [background-image:linear-gradient(rgba(15,42,50,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
+        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-[position:63%_center] bg-no-repeat opacity-[0.24]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[#d3e5e7]/35" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12] [background-image:linear-gradient(rgba(15,42,50,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-20 -z-10 size-[28rem] rounded-full bg-teal-300/30 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -left-24 bottom-0 -z-10 size-72 rounded-full bg-red-300/20 blur-3xl" />
         <div className="mx-auto max-w-7xl">
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       <section id="o-nama" className="relative isolate mx-auto grid max-w-7xl scroll-mt-8 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24 lg:px-12 lg:py-32">
-        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-[position:62%_center] bg-no-repeat opacity-[0.07]" />
+        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-[position:62%_center] bg-no-repeat opacity-[0.14]" />
         <div aria-hidden="true" className="pointer-events-none absolute -right-20 top-1/2 size-72 -translate-y-1/2 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="relative min-h-[390px] overflow-hidden rounded-[2rem] bg-[#0b1b22] p-7 text-white shadow-[0_24px_70px_rgba(15,23,42,0.13)] sm:p-9">
           <div className="absolute -right-16 -top-16 size-64 rounded-full bg-red-500/20 blur-3xl" />
@@ -315,9 +315,9 @@ export default function Home() {
       </section>
 
       <section className="relative isolate overflow-hidden border-y border-slate-300/70 bg-[#edf4f5]/90 px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
-        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-[position:62%_center] bg-no-repeat opacity-[0.08]" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[#edf4f5]/58" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-20 [background-image:linear-gradient(rgba(15,42,50,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.07)_1px,transparent_1px)] [background-size:52px_52px]" />
+        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-[position:62%_center] bg-no-repeat opacity-[0.15]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[#edf4f5]/35" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12] [background-image:linear-gradient(rgba(15,42,50,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(15,42,50,0.07)_1px,transparent_1px)] [background-size:52px_52px]" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-1/3 -z-10 size-96 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
