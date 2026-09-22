@@ -1,11 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   AlertTriangle,
   ArrowDownRight,
   ArrowRight,
   Banknote,
-  CarFront,
   Check,
   CheckCircle2,
   ChevronRight,
@@ -30,6 +30,8 @@ type Problem = {
   text: string;
   tone: string;
 };
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const problems: Problem[] = [
   {
@@ -68,24 +70,6 @@ const problems: Problem[] = [
     text: "Imate papir pred sobom i rok koji teče, ali ne znate koji je prvi korak.",
     tone: "bg-blue-50 text-blue-700 ring-blue-100",
   },
-  {
-    icon: CarFront,
-    title: "Saobraćajne kazne",
-    text: "Imate kaznu, prinudnu naplatu ili blokadu zbog saobraćajnog prekršaja.",
-    tone: "bg-orange-50 text-orange-700 ring-orange-100",
-  },
-  {
-    icon: FileWarning,
-    title: "Opomena pred utuženje",
-    text: "Dobili ste opomenu i niste sigurni da li i kako treba da reagujete.",
-    tone: "bg-yellow-50 text-yellow-700 ring-yellow-100",
-  },
-  {
-    icon: Gavel,
-    title: "Tužba ili sudski poziv",
-    text: "Stigla vam je tužba ili poziv suda, a ne znate koji rokovi važe.",
-    tone: "bg-fuchsia-50 text-fuchsia-700 ring-fuchsia-100",
-  },
 ];
 
 const topics = [
@@ -95,10 +79,6 @@ const topics = [
   "Izvršenje na plati ili penziji",
   "Popis i prodaja pokretne imovine",
   "Dugovi prema banci, operateru ili komunalnom preduzeću",
-  "Saobraćajne kazne i prinudna naplata",
-  "Kako proveriti i obustaviti naplatu saobraćajne kazne",
-  "Šta uraditi kada stigne opomena pred utuženje",
-  "Kako reagovati na tužbu ili sudski poziv",
 ];
 
 export default function Home() {
@@ -114,13 +94,13 @@ export default function Home() {
         </div>
 
         <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
-          <a href="#top" className="flex items-center gap-4" aria-label="Rešite se problema sa javnim izvršiteljima - početak">
-            <span className="grid size-14 place-items-center rounded-2xl border border-red-300/25 bg-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.22)]">
-              <Scale className="size-8 text-red-300" strokeWidth={1.7} />
+          <a href="#top" className="flex items-center gap-3" aria-label="Pomoć kod izvršitelja - početak">
+            <span className="grid size-10 place-items-center rounded-xl border border-white/15 bg-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.22)]">
+              <Scale className="size-5 text-red-300" />
             </span>
-            <span className="max-w-[225px] leading-[1.05]">
-              <span className="block text-[11px] font-black uppercase tracking-[0.14em] text-red-200">Pobedimo izvršitelja zajedno</span>
-              <span className="mt-1 block text-[11px] font-bold uppercase tracking-[0.12em] text-white">Bez skupih advokatskih naknada</span>
+            <span className="leading-none">
+              <span className="block text-[11px] font-bold uppercase tracking-[0.24em] text-red-200">Pomoć kod</span>
+              <span className="mt-1 block text-sm font-semibold tracking-tight text-white">izvršitelja</span>
             </span>
           </a>
 
@@ -128,18 +108,15 @@ export default function Home() {
             <a className="transition-colors hover:text-white" href="#problemi">Problemi</a>
             <a className="transition-colors hover:text-white" href="#kako-radimo">Kako radimo</a>
             <a className="transition-colors hover:text-white" href="#o-nama">Ko smo mi</a>
-            <a className="transition-colors hover:text-white" href="#iskustva">Iskustva korisnika</a>
-            <a className="transition-colors hover:text-white" href="/blog">Blog</a>
-            <a className="rounded-full border border-emerald-300/35 px-3 py-1.5 font-bold text-emerald-200 transition hover:border-emerald-200 hover:bg-emerald-300/10 hover:text-white" href="#podrska">Podrška</a>
           </nav>
 
-          <a
+          <Link
             href="/provera-slucaja"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white px-4 py-2.5 text-sm font-bold text-slate-950 shadow-[0_12px_30px_rgba(255,255,255,0.12)] transition hover:-translate-y-0.5 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2 focus:ring-offset-[#091116]"
           >
             Proverite svoj slučaj
             <ArrowRight className="size-4" />
-          </a>
+          </Link>
         </header>
 
         <div id="top" className="mx-auto grid max-w-7xl gap-14 px-5 pb-20 pt-12 sm:px-8 sm:pb-28 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-12 lg:pb-32 lg:pt-20">
@@ -149,19 +126,19 @@ export default function Home() {
               Ne čekajte da bude kasno
             </div>
             <h1 className="max-w-3xl text-[clamp(2.8rem,7vw,6.5rem)] font-semibold leading-[0.94] tracking-[-0.065em] text-balance">
-              Rešite se problema sa <span className="text-red-300">javnim izvršiteljima.</span>
+              Imate problem sa <span className="text-red-300">izvršiteljem?</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
               Kada stigne rešenje, blokira se račun ili se pomene prodaja imovine, najteže je znati odakle početi. Tu smo da zajedno razumemo šta se dešava i koji je sledeći korak.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
+              <Link
                 href="/provera-slucaja"
                 className="inline-flex items-center justify-center gap-3 rounded-full bg-red-500 px-6 py-3.5 text-sm font-bold text-white shadow-[0_14px_35px_rgba(239,68,68,0.28)] transition hover:-translate-y-0.5 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-[#091116]"
               >
                 Napravite prvi korak
                 <ArrowRight className="size-4" />
-              </a>
+              </Link>
               <a
                 href="#kako-radimo"
                 className="inline-flex items-center justify-center gap-3 rounded-full border border-white/15 px-6 py-3.5 text-sm font-bold text-white transition hover:border-white/35 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-[#091116]"
@@ -172,7 +149,7 @@ export default function Home() {
             </div>
             <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
               <span className="inline-flex items-center gap-2"><CheckCircle2 className="size-4 text-emerald-300" /> Jasno objašnjenje</span>
-              <span className="inline-flex items-center gap-2"><CheckCircle2 className="size-4 text-emerald-300" /> Dogovorena nagrada</span>
+              <span className="inline-flex items-center gap-2"><CheckCircle2 className="size-4 text-emerald-300" /> Transparentna naknada</span>
               <span className="inline-flex items-center gap-2"><CheckCircle2 className="size-4 text-emerald-300" /> Bez lažnih obećanja</span>
             </div>
           </div>
@@ -237,9 +214,9 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight">{problem.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-600">{problem.text}</p>
-                  <a href="/provera-slucaja" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-slate-900 transition group-hover:text-red-700">
+                  <Link href="/provera-slucaja" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-slate-900 transition group-hover:text-red-700">
                     Saznajte više <ArrowRight className="size-4" />
-                  </a>
+                  </Link>
                 </article>
               );
             })}
@@ -297,11 +274,10 @@ export default function Home() {
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-700">Ljudska podrška, jasan jezik</p>
           <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Tu smo da pomognemo dok još postoji prostor za reakciju.</h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-slate-600">Ovaj servis je nastao iz potrebe da ljudi dobiju razumljivu početnu orijentaciju kada se suoče sa izvršenjem. Ne prodajemo lažnu sigurnost i ne obećavamo ishod koji niko ne može da garantuje.</p>
-          <p className="mt-4 max-w-xl text-base leading-8 text-slate-600"><strong>Organizator projekta, Marko Ćuća,</strong> kroz višegodišnje lično iskustvo rešavao je brojne probleme sa javnim izvršiteljima, kao i predmete u vezi sa saobraćajnim kaznama i prinudnom naplatom. Cilj je da ljudi na vreme razumeju svoj slučaj i mogućnosti.</p>
-          <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">Za jasnu analizu i sledeće korake unapred se dogovara nagrada za izvršen posao. Kada je za vaš slučaj potrebna advokatska ili druga stručna pomoć, to treba jasno reći odmah.</p>
+          <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">Za jasnu analizu i sledeće korake plaća se transparentna naknada. Kada je za vaš slučaj potrebna advokatska ili druga stručna pomoć, to treba jasno reći odmah.</p>
           <div className="mt-8 flex flex-wrap gap-6">
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700"><Check className="size-4 text-emerald-600" /> Razumljiv razgovor</span>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700"><Check className="size-4 text-emerald-600" /> Jasno dogovorena nagrada</span>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700"><Check className="size-4 text-emerald-600" /> Jasna naknada</span>
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700"><Check className="size-4 text-emerald-600" /> Realna očekivanja</span>
           </div>
         </div>
@@ -316,60 +292,11 @@ export default function Home() {
           </div>
           <div className="grid gap-x-10 sm:grid-cols-2">
             {topics.map((topic) => (
-              <a key={topic} href="/provera-slucaja" className="group flex items-start gap-3 border-b border-slate-200 py-5 text-base font-semibold leading-6 text-slate-800 transition hover:text-blue-700">
+              <Link key={topic} href="/provera-slucaja" className="group flex items-start gap-3 border-b border-slate-200 py-5 text-base font-semibold leading-6 text-slate-800 transition hover:text-blue-700">
                 <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-blue-50 text-blue-700"><ChevronRight className="size-3.5" /></span>
                 <span>{topic}</span>
-              </a>
+              </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="iskustva" className="scroll-mt-8 bg-[#f7f8fa] px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-700">Iskustva korisnika</p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Priče ljudi kojima je bio potreban prvi korak.</h2>
-            <p className="mt-5 text-base leading-7 text-slate-600">Iskustva ćemo objavljivati samo uz saglasnost korisnika, bez nepotrebnog otkrivanja ličnih podataka i tek nakon što sadržaj bude proveren.</p>
-          </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {[
-              ["Razumevanje", "Korisnik je dobio jasnije objašnjenje dokumenta i rokova koje treba pratiti."],
-              ["Saobraćajna kazna", "Slučaj prinudne naplate saobraćajne kazne sagledan je kroz dostupnu dokumentaciju."],
-              ["Podrška na vreme", "Prvi razgovor pomogao je da se problem ne odlaže dok rokovi prolaze."],
-            ].map(([title, text]) => (
-              <article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_10px_32px_rgba(15,23,42,0.04)]">
-                <div className="grid size-10 place-items-center rounded-xl bg-emerald-50 text-emerald-700"><CheckCircle2 className="size-5" /></div>
-                <h3 className="mt-5 text-lg font-semibold tracking-tight">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
-                <p className="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Primer kategorije · bez ličnih podataka</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="podrska" className="scroll-mt-8 border-y border-emerald-200 bg-emerald-50 px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Podrška projektu</p>
-            <h2 className="mt-4 max-w-md text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Pomozite da neko dobije priliku za prvi korak.</h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-emerald-950/70">Neki ljudi nemaju novca ni za osnovne troškove — overu dokumenata, slanje podnesaka i druge neophodne korake.</p>
-          </div>
-          <div className="rounded-3xl border border-emerald-200 bg-white p-7 shadow-[0_16px_45px_rgba(16,185,129,0.09)] sm:p-9">
-            <div className="flex items-start gap-4">
-              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-emerald-100 text-emerald-700"><HeartHandshake className="size-6" /></span>
-              <div>
-                <h3 className="text-xl font-semibold tracking-tight text-slate-950">Dobrovoljna podrška ljudima kojima je najpotrebnija</h3>
-                <p className="mt-4 text-base leading-7 text-slate-600">Ako želite da podržite ovaj projekat, kontaktirajte organizatora i informišite se o mogućnosti dobrovoljne donacije za pomoć osobama koje zbog teške finansijske situacije ne mogu da naprave ni prvi korak.</p>
-              </div>
-            </div>
-            <div className="mt-7 grid gap-3 text-sm leading-6 text-slate-700 sm:grid-cols-2">
-              <p className="rounded-2xl bg-slate-50 p-4"><strong>Transparentno:</strong> podrška se evidentira i koristi namenski, uz jasno objašnjenje troškova.</p>
-              <p className="rounded-2xl bg-slate-50 p-4"><strong>Dobrovoljno:</strong> donacija nije uslov za pomoć i ne predstavlja garanciju ishoda postupka.</p>
-            </div>
-            <a href="#kontakt" className="mt-7 inline-flex items-center gap-2 rounded-full bg-emerald-700 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2">Kontaktirajte organizatora <ArrowRight className="size-4" /></a>
-            <p className="mt-5 text-xs leading-5 text-slate-500">Način primanja i evidencije podrške biće uređen u skladu sa važećim propisima i potvrđen pre javnog početka.</p>
           </div>
         </div>
       </section>
@@ -385,18 +312,8 @@ export default function Home() {
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">Prvi kontakt</p>
             <div className="mt-5 space-y-4 text-sm leading-6 text-slate-200">
               <p className="flex gap-3"><Mail className="mt-1 size-5 shrink-0 text-emerald-300" /> Ostavite osnovne informacije o tome šta ste dobili i kada.</p>
-              <p className="flex gap-3"><WalletCards className="mt-1 size-5 shrink-0 text-emerald-300" /> Nagrada i obim pomoći biće jasno objašnjeni pre saradnje.</p>
+              <p className="flex gap-3"><WalletCards className="mt-1 size-5 shrink-0 text-emerald-300" /> Naknada i obim pomoći biće jasno objašnjeni pre saradnje.</p>
               <p className="flex gap-3"><ShieldCheck className="mt-1 size-5 shrink-0 text-emerald-300" /> Ne šaljite osetljive dokumente pre dogovorenog bezbednog kanala.</p>
-            </div>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              <a href="mailto:markoplatinum@icloud.com" className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-emerald-300/50 hover:bg-white/10">
-                <span className="block text-xs font-bold uppercase tracking-[0.14em] text-slate-400">E-mail</span>
-                <span className="mt-1 block break-all text-sm font-semibold text-emerald-200">markoplatinum@icloud.com</span>
-              </a>
-              <a href="tel:+381637572520" className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-emerald-300/50 hover:bg-white/10">
-                <span className="block text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Telefon</span>
-                <span className="mt-1 block text-sm font-semibold text-emerald-200">063 757 2520</span>
-              </a>
             </div>
             <a href="#top" className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-emerald-300 px-5 py-3.5 text-sm font-bold text-[#102a32] transition hover:bg-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 focus:ring-offset-[#102a32]">Vratite se na početak <ArrowRight className="size-4" /></a>
           </div>
@@ -406,9 +323,9 @@ export default function Home() {
       <footer className="bg-[#091116] px-5 py-8 text-sm text-slate-400 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col items-start gap-3">
-            <Image src="/platinum-core-777-logo.png" alt="PLATINUM CORE 777" width={345} height={254} className="h-16 w-auto object-contain object-left" />
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-300">LICENSED · POWERED BY PLATINUM CORE 777</p>
-            <p>© 2026 Rešite se problema sa javnim izvršiteljima · Marko Ćuća</p>
+            <Image src={`${basePath}/platinum-core-777-logo.png`} alt="PLATINUM CORE 777" width={345} height={254} className="h-16 w-auto object-contain object-left" />
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-300">LICENSED · POWERED BY PLATINUM CORE 777 · LK-023</p>
+            <p>© 2026 Pomoć kod izvršitelja · Marko Ćuća</p>
           </div>
           <p className="max-w-xl text-left text-xs leading-5 text-slate-500 sm:text-right">Informativni sadržaj ne predstavlja garanciju ishoda. Svaki slučaj zahteva proveru konkretnih dokumenata i rokova.</p>
         </div>
