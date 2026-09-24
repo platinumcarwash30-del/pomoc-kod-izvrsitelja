@@ -50,6 +50,47 @@ function formatBytes(value: number) {
     : (value / 1024 / 1024).toFixed(1) + " MB";
 }
 
+function consumeBrandedAccess(): "redirecting" | "session" | "none" | "invalid" {
+  if (typeof window === "undefined") return "none";
+  const raw = window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "";
+  if (!raw) return "none";
+  const params = new URLSearchParams(raw);
+  const accessLink = params.get("access_link");
+  if (accessLink) {
+    try {
+      const parsed = new URL(accessLink);
+      const base = new URL(SUPABASE_URL);
+      const redirectTo = parsed.searchParams.get("redirect_to");
+      if (
+        parsed.origin !== base.origin ||
+        parsed.pathname !== "/auth/v1/verify" ||
+        (redirectTo && new URL(redirectTo).origin !== window.location.origin)
+      ) {
+        return "invalid";
+      }
+      window.location.replace(parsed.href);
+      return "redirecting";
+    } catch {
+      return "invalid";
+    }
+  }
+  const accessToken = params.get("access_token");
+  if (!accessToken) return "none";
+  window.localStorage.setItem(
+    SESSION_KEY,
+    JSON.stringify({
+      access_token: accessToken,
+      refresh_token: params.get("refresh_token") || "",
+      token_type: params.get("token_type") || "bearer",
+      expires_in: Number(params.get("expires_in") || 3600),
+      expires_at: Number(params.get("expires_at") || 0),
+    }),
+  );
+  window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  return "session";
+}
+
+
 export default function ClientPortalPage() {
   const [session, setSession] = useState<Session | null>(null);
   const [cases, setCases] = useState<CaseRow[]>([]);
@@ -87,6 +128,12 @@ export default function ClientPortalPage() {
   }
 
   useEffect(() => {
+    const accessState = consumeBrandedAccess();
+    if (accessState === "redirecting") return;
+    if (accessState === "invalid") {
+      setError("Pristupni link nije validan ili je istekao.");
+      return;
+    }
     if (window.localStorage.getItem(SESSION_KEY)) {
       loadPortal().catch(() => {
         window.localStorage.removeItem(SESSION_KEY);
