@@ -84,6 +84,85 @@ const topics = [
   "Dugovi prema banci, operateru ili komunalnom preduzeću",
 ];
 
+type ProjectPage = {
+  order: string;
+  title: string;
+  description: string;
+  href: string;
+  icon: LucideIcon;
+  iconTone: string;
+};
+
+const supportPages: ProjectPage[] = [
+  {
+    order: "01",
+    title: "Podrška",
+    description: "Kako možete da podržite širenje projekta i da informacija stigne do pravih ljudi.",
+    href: "https://podrska.pobediizvrsitelja.rs/",
+    icon: HeartHandshake,
+    iconTone: "bg-rose-50 text-rose-700 ring-rose-100",
+  },
+  {
+    order: "02",
+    title: "Pomoć",
+    description: "Jasne početne informacije kada ne znate odakle da krenete.",
+    href: "https://pomoc.pobediizvrsitelja.rs/",
+    icon: MessageCircleMore,
+    iconTone: "bg-sky-50 text-sky-700 ring-sky-100",
+  },
+  {
+    order: "03",
+    title: "Pomoć građanima",
+    description: "Praktična orijentacija za građane koji se suočavaju sa izvršenjem.",
+    href: "https://pomocgradjanima.pobediizvrsitelja.rs/",
+    icon: ShieldCheck,
+    iconTone: "bg-emerald-50 text-emerald-700 ring-emerald-100",
+  },
+  {
+    order: "04",
+    title: "Prava",
+    description: "Osnovne informacije o pravima, dokumentima i rokovima.",
+    href: "https://prava.pobediizvrsitelja.rs/",
+    icon: Scale,
+    iconTone: "bg-violet-50 text-violet-700 ring-violet-100",
+  },
+  {
+    order: "05",
+    title: "Protiv",
+    description: "Šta proveriti kada ne prepoznajete dug ili se ne slažete sa podacima.",
+    href: "https://protiv.pobediizvrsitelja.rs/",
+    icon: FileWarning,
+    iconTone: "bg-amber-50 text-amber-700 ring-amber-100",
+  },
+  {
+    order: "06",
+    title: "Stop",
+    description: "Prvi hitni koraci kada rok teče, račun je blokiran ili preti prinudna naplata.",
+    href: "https://stop.pobediizvrsitelja.rs/",
+    icon: AlertTriangle,
+    iconTone: "bg-red-50 text-red-700 ring-red-100",
+  },
+];
+
+const programPages: ProjectPage[] = [
+  {
+    order: "01",
+    title: "Platinum Core 777",
+    description: "Autorsko i razvojno jezgro iz kog su nastale povezane digitalne inicijative.",
+    href: "https://platinumcore777.pobediizvrsitelja.rs/",
+    icon: Sparkles,
+    iconTone: "bg-amber-300/15 text-amber-200 ring-amber-200/20",
+  },
+  {
+    order: "02",
+    title: "Podrška softveru",
+    description: "Tehnička podrška projektu, razvojnom radu i softveru koji ga pokreće.",
+    href: "https://podrskasoftveru.pobediizvrsitelja.rs/",
+    icon: WalletCards,
+    iconTone: "bg-emerald-300/15 text-emerald-200 ring-emerald-200/20",
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#dcebed]/90 text-slate-950">
@@ -137,6 +216,7 @@ export default function Home() {
           </a>
 
           <nav className="hidden items-center gap-8 text-sm text-slate-300 lg:flex" aria-label="Glavna navigacija">
+            <a className="transition-colors hover:text-white" href="#projekti">Stranice</a>
             <a className="transition-colors hover:text-white" href="#problemi">Problemi</a>
             <a className="transition-colors hover:text-white" href="#kako-radimo">Kako radimo</a>
             <a className="transition-colors hover:text-white" href="#o-nama">Ko smo mi</a>
@@ -223,6 +303,78 @@ export default function Home() {
                 <span className="grid size-8 place-items-center rounded-full bg-emerald-300/15 text-emerald-200"><HeartHandshake className="size-4" /></span>
                 Prvi razgovor počinje razumevanjem vašeg problema.
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="projekti" className="relative isolate overflow-hidden border-y border-slate-300/70 bg-[#edf4f5]/90 px-5 py-20 scroll-mt-8 sm:px-8 lg:px-12 lg:py-28">
+        <div aria-hidden="true" style={storyBackgroundStyle} className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-[position:62%_center] bg-no-repeat opacity-[0.12]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-16 -z-10 size-72 rounded-full bg-red-300/20 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-0 -z-10 size-80 rounded-full bg-teal-300/20 blur-3xl" />
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-700">Navigacija projekta</p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Izaberite oblast koja vam je potrebna.</h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">Glavni sajt je polazna tačka. Svaka kartica vodi na svoju posebnu stranicu i objašnjava jedan deo projekta.</p>
+          </div>
+
+          <div className="mt-12">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-700">Pomoć i informacije</p>
+                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">Šest koraka za snalaženje</h3>
+              </div>
+              <span className="rounded-full border border-slate-300 bg-white/75 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">01 → 06</span>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
+              {supportPages.map((page, index) => {
+                const Icon = page.icon;
+                return (
+                  <a key={page.href} href={page.href} aria-label={`Otvori stranicu: ${page.title}`} className="group relative flex min-h-[245px] flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_10px_32px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 hover:border-amber-300 hover:shadow-[0_18px_45px_rgba(15,23,42,0.11)] focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className={`grid size-11 place-items-center rounded-xl ring-1 ${page.iconTone}`}>
+                        <Icon className="size-5" />
+                      </div>
+                      <span className="text-xs font-bold tracking-[0.14em] text-slate-400">{page.order}</span>
+                    </div>
+                    <h4 className="mt-6 text-xl font-semibold tracking-tight text-slate-900">{page.title}</h4>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{page.description}</p>
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-bold text-amber-700 transition group-hover:text-amber-900">Otvori stranicu <ArrowRight className="size-4 transition group-hover:translate-x-1" /></span>
+                    {index < supportPages.length - 1 && <span aria-hidden="true" className="pointer-events-none absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 text-2xl font-bold text-amber-600 xl:block">→</span>}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-16 rounded-[2rem] bg-[#0b1b22] p-5 text-white shadow-[0_24px_70px_rgba(15,23,42,0.14)] sm:p-8 lg:p-10">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">Programi i razvoj</p>
+                <h3 className="mt-2 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">Autorsko jezgro i podrška softveru</h3>
+              </div>
+              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-slate-300">Odvojene stranice</span>
+            </div>
+            <div className="mt-7 grid gap-5 lg:grid-cols-2">
+              {programPages.map((page) => {
+                const Icon = page.icon;
+                return (
+                  <a key={page.href} href={page.href} aria-label={`Otvori program: ${page.title}`} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.07] p-7 transition hover:-translate-y-1 hover:border-amber-200/50 hover:bg-white/[0.11] focus:outline-none focus:ring-2 focus:ring-amber-200 focus:ring-offset-2 focus:ring-offset-[#0b1b22] sm:p-9">
+                    <div aria-hidden="true" className="absolute -right-16 -top-16 size-48 rounded-full bg-amber-300/10 blur-3xl transition group-hover:bg-amber-300/20" />
+                    <div className="relative flex items-start justify-between gap-4">
+                      <div className={`grid size-14 place-items-center rounded-2xl ring-1 ${page.iconTone}`}>
+                        <Icon className="size-6" />
+                      </div>
+                      <span className="text-xs font-bold tracking-[0.16em] text-slate-400">PROGRAM {page.order}</span>
+                    </div>
+                    <h4 className="relative mt-8 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{page.title}</h4>
+                    <p className="relative mt-3 max-w-xl text-base leading-7 text-slate-300">{page.description}</p>
+                    <span className="relative mt-8 inline-flex items-center gap-2 text-sm font-bold text-amber-200">Otvori program <ArrowRight className="size-4 transition group-hover:translate-x-1" /></span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
