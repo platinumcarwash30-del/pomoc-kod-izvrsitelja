@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="sr-Latn-RS">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Podrška projektu | Pomoć kod izvršitelja</title>
+  <meta name="description" content="Podržite širenje razumljivih informacija o problemima sa izvršenjem. Podelite sajt ili pomozite da početna podrška bude dostupna najugroženijima.">
+  <link rel="canonical" href="https://podrska.pobediizvrsitelja.rs/">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="https://www.pobediizvrsitelja.rs/">
+        Pomoć kod izvršitelja
+        <span>Podrška projektu</span>
+      </a>
+      <a class="top-link" href="https://www.pobediizvrsitelja.rs/">Glavni sajt →</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Podrška koja stiže do pravih ljudi</p>
+      <h1>Jedna podeljena informacija može nekome biti prvi korak.</h1>
+      <p class="lead">Ako vam je naš sajt bio koristan ili verujete da može pomoći drugima, podržite projekat tako što ćete ga podeliti sa osobom kojoj je potrebna jasna početna orijentacija.</p>
+      <div class="hero-actions">
+        <button class="button" id="shareButton" type="button">Podeli ovu stranicu</button>
+        <a class="button secondary" href="https://www.pobediizvrsitelja.rs/">Vrati se na glavni sajt</a>
+      </div>
+      <p class="share-status" id="shareStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <main>
+    <div class="shell">
+      <section class="intro">
+        <p class="eyebrow">Zašto je podrška važna</p>
+        <h2>Informacija vredi najviše kada stigne na vreme.</h2>
+        <p>Ljudi se često prvi put susretnu sa rešenjem, blokadom računa, obustavom na plati ili penziji i ne znaju odakle da počnu. Ne mora svako odmah znati pravni naziv problema. Važno je da zna gde može da pročita osnovne informacije i kako da napravi prvi bezbedan korak.</p>
+        <p>Vaša podrška pomaže da ovaj sajt pronađu ljudi kojima je potreban razumljiv jezik, realna očekivanja i upućivanje na dalju stručnu pomoć kada je ona potrebna.</p>
+      </section>
+
+      <section class="cards" aria-label="Načini podrške">
+        <article class="card">
+          <p class="card-number">01</p>
+          <h3>Podelite sajt</h3>
+          <p>Pošaljite adresu sajta porodici, prijateljima, komšijama ili osobi za koju znate da se suočava sa izvršenjem.</p>
+          <button class="button secondary" id="copyButton" type="button">Kopiraj adresu sajta</button>
+        </article>
+        <article class="card">
+          <p class="card-number">02</p>
+          <h3>Uputite nekoga na vreme</h3>
+          <p>Jedna poruka može pomoći nekome da proveri datum prijema, rokove i dokumenta pre nego što problem postane još teži.</p>
+          <a class="button secondary" href="https://www.pobediizvrsitelja.rs/provera-slucaja/">Proverite svoj slučaj</a>
+        </article>
+        <article class="card">
+          <p class="card-number">03</p>
+          <h3>Pomozite najugroženijima</h3>
+          <p>Projekat je moguće podržati i novčano, kako bi osnovne informacije i početna podrška bili dostupniji ljudima koji su u najtežoj situaciji.</p>
+        </article>
+      </section>
+
+      <section class="support-box">
+        <p class="eyebrow">Podrška projektu</p>
+        <h2>Ne mora svaka pomoć da počne velikim korakom.</h2>
+        <p>Možete pomoći deljenjem sajta, preporukom drugoj osobi ili novčanom podrškom namenjenom širenju informacija i pomoći najugroženijim građanima. Način i namena novčane podrške biće jasno objavljeni na posebnoj stranici projekta.</p>
+        <p>Hvala što pomažete da prava informacija dođe do osobe kojoj je potrebna.</p>
+        <div class="hero-actions">
+          <button class="button" id="shareButtonBottom" type="button">Podeli sa nekim kome može pomoći</button>
+          <a class="button secondary" href="https://www.pobediizvrsitelja.rs/">Nazad na glavni sajt</a>
+        </div>
+      </section>
+
+      <p class="note"><strong>Važno:</strong> sadržaj sajta je informativan i ne predstavlja garanciju ishoda. Konkretan slučaj zahteva proveru dokumenata, rokova i okolnosti.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <img src="https://www.pobediizvrsitelja.rs/platinum-core-777-logo.png" alt="PLATINUM CORE 777">
+      <p class="footer-brand">LICENSED · POWERED BY PLATINUM CORE 777 · LK-023</p>
+      <p>© 2026 Pomoć kod izvršitelja · Marko Ćuća</p>
+      <p class="footer-small">Informativni sadržaj ne predstavlja garanciju ishoda. Svaki slučaj zahteva proveru konkretnih dokumenata i rokova.</p>
+    </div>
+  </footer>
+
+  <script>
+    const pageUrl = 'https://www.pobediizvrsitelja.rs/';
+    const status = document.getElementById('shareStatus');
+    function showStatus(message) { status.textContent = message; window.setTimeout(() => { status.textContent = ''; }, 4500); }
+    async function shareSite() {
+      if (navigator.share) {
+        await navigator.share({ title: 'Pomoć kod izvršitelja', text: 'Korisne informacije i prvi koraci', url: pageUrl });
+        showStatus('Hvala što širite informaciju.');
+        return;
+      }
+      await navigator.clipboard.writeText(pageUrl);
+      showStatus('Adresa glavnog sajta je kopirana.');
+    }
+    async function copySite() {
+      await navigator.clipboard.writeText(pageUrl);
+      showStatus('Adresa glavnog sajta je kopirana.');
+    }
+    document.getElementById('shareButton').addEventListener('click', shareSite);
+    document.getElementById('shareButtonBottom').addEventListener('click', shareSite);
+    document.getElementById('copyButton').addEventListener('click', copySite);
+  </script>
+</body>
+</html>
