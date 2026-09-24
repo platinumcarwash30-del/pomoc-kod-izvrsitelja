@@ -9,6 +9,16 @@ const CLIENT_ENDPOINT = SUPABASE_URL + "/functions/v1/lk023-client-portal";
 const SESSION_KEY = "lk023-client-session";
 
 type Session = { access_token?: string };
+type ApiResponse = {
+  ok?: boolean;
+  error?: string;
+  message?: string;
+  msg?: string;
+  access_token?: string;
+  actor?: { full_name?: string };
+  cases?: CaseRow[];
+  [key: string]: unknown;
+};
 type DocumentRow = {
   id: string;
   original_name: string;
@@ -50,7 +60,7 @@ export default function ClientPortalPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function apiCall(action: string, payload: Record<string, unknown> = {}) {
+  async function apiCall(action: string, payload: Record<string, unknown> = {}): Promise<ApiResponse> {
     const stored = JSON.parse(window.localStorage.getItem(SESSION_KEY) || "null") as Session | null;
     if (!stored?.access_token) throw new Error("Sesija je istekla.");
     const response = await fetch(CLIENT_ENDPOINT, {
@@ -62,7 +72,7 @@ export default function ClientPortalPage() {
       },
       body: JSON.stringify({ action, ...payload }),
     });
-    const data = await response.json().catch(() => ({}));
+    const data = (await response.json().catch(() => ({}))) as ApiResponse;
     if (!response.ok || data.ok === false) {
       throw new Error(data.error || "Veza sa serverom trenutno nije uspela.");
     }
@@ -99,7 +109,7 @@ export default function ClientPortalPage() {
           password,
         }),
       });
-      const data = await response.json().catch(() => ({}));
+      const data = (await response.json().catch(() => ({}))) as ApiResponse;
       if (!response.ok || !data.access_token) {
         throw new Error(data.message || data.msg || "Prijava nije uspela.");
       }
