@@ -519,6 +519,10 @@ export default function Home() {
         </div>
       </section>
 
+      <section aria-label="Kontakt" className="bg-[#091116] px-5 pb-4 text-center text-sm text-slate-300 sm:px-8 lg:px-12">
+        <p className="font-semibold tracking-tight text-slate-200">contact@pobediizvrsitelja.rs</p>
+      </section>
+
       <footer className="bg-[#091116] px-5 py-8 text-sm text-slate-400 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col items-start gap-3">
